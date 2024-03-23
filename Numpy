@@ -8,12 +8,12 @@ print('数组内容为:',a)
 print('数组类型为:',a.dtype)
 print("数组的形状为:',a.shape)
 print('数组的维数为:',a.ndim)
-print('数组的长度为:',a.size)
+print('数组的长度为:',a.size) #数组长度
 
 三、Numpy模块中数组的基本操作
 (一）.内置的数组创建方法
 zeros()、ones()
-(1)zeros：创建一个通过shape参数指定数组形状与元素均为0的数组
+(1)zeros()：创建一个通过shape参数指定数组形状与元素均为0的数组
 a=np.zeros(4)
 print(a)
 (2)ones():创建元素全部为1的数组
@@ -83,3 +83,52 @@ vstack()函数：实现垂直堆叠序列中的数组
 
 3.split(）函数
 实现沿着特定的轴将原数组分割为多个子数组
+
+四、Numpy模块中函数的应用
+1.三角函数
+a=np.array([0,30,60,90])
+print(np.sin(a))
+
+2.数值修约
+a=np.randim.uniform(range(1,6),6)  #打印5个1~6以内的随机小数
+
+3.算术函数
+a=np.random.uniform(range(1,6),6)
+b=np.random.uniform(range(1,6),6)
+print('数组相加结果：',np.add(a,b))
+print('数组相减结果:',np.subtract(a,b))
+print('数组相乘结果:',np.multiply(a,b))
+print('数组相除结果:',np.divide(a,b))
+print('数组倒数结果:',np.reciprocal(a,b))
+print('数组a对应负数结果:',np.negative(a,b))
+print('数组a对应数组b元素中的幂结果:',np.power(a,b))
+print('数组a与b元素求余结果:',np.mod(a,b))
+
+4.统计函数
+（1）amax()函数：获取最大值
+amin()函数：获取最小值
+*注：axis=0:以列的方式进行获取
+axis=1:以行的方式进行获取
+
+(2)ptp()函数：计算数组中元素最大值与最小值的差
+
+(3)sum()函数：计算数组元素总和
+median()函数：计算数组元素的中间数（中间值）
+mean()函数：获取元素平均值
+
+（4）percentile()函数：获取数组元素的百分位数
+
+5.矩阵函数
+#矩阵是继承了Numpy数组对象的二维数组对象，与数学概念中的矩阵相同，所以矩阵也是二维的。
+（1）matlib子模块
+该子模块返回的是一个矩阵
+from numpy import matlib
+ 
+(2)Numpy中的矩阵函数
+import numpy as np
+a=np.array([[1,2,3],[4,5,6],[7,8,9]])
+b=np.mat(a)
+print(b)
+
+五、广播机制
+1.只有在实现两个形状不同的数组计算时才会触发
