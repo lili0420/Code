@@ -1,1 +1,19 @@
+一、pandas数据结构
+两大核心：Series和DataFrame，其中Series是一维数组，可以保存多种数据类型的数据，如布尔值、字符串、数字类型等。
+DataFrame是一种二维的表格形式的数据结构，它类似于Excel表格。
+
+1.Series对象
+（1）创建Series对象
+import pandas
+data=['A','B','C','D']
+series=pandas.Series(data)
+print(series)
+
+*注：还可以指定索引项
+import pandas
+data=['A','B','C','D']
+index=['a','b','c']
+series=pandas.Series(data,index=index)
+print(series)
+
 
