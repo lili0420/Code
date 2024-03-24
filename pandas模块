@@ -3,7 +3,7 @@
 DataFrame是一种二维的表格形式的数据结构，它类似于Excel表格。
 
 1.Series对象
-（1）创建Series对象
+<1>创建Series对象
 import pandas
 data=['A','B','C','D']
 series=pandas.Series(data)
@@ -15,5 +15,39 @@ data=['A','B','C','D']
 index=['a','b','c']
 series=pandas.Series(data,index=index)
 print(series)
+
+<2>访问数据
+（1）print(series.index)   #单独访问索引数组
+print(series.values)  #单独访问元素数组
+
+（2）
+print(series[1])   #获取指定下标的数组元素
+print(series['a'])  #获取指定索引的数组元素
+
+（3）
+print(series[0:3])  #获取指定下标范围的元素
+
+(4)
+print(series[['a','b']])  #获取指定多个索引的方式获取Series对象
+
+<3>修改元素值
+series[0]='D'
+print(series)
+series['b']='A'
+print(series)
+
+2.DataFrame对象
+import pandas
+data={'A':[1,2,3,4,5],
+'B':[6,7,8,9,10],
+'C':[11,12,13,14,15]}
+index=['a','b','c','d','e']
+data_frame=pandas.DataFrame(data,index=index)    #创建自定义索引DataFrame对象
+print(data_frame)
+
+
+
+
+
 
 
