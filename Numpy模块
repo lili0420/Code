@@ -1,9 +1,10 @@
-一、Numpy支持运算，也支持多种数据类型
-二、ndarry对象是Numpy模块的基础对象，用于存放同类型元素的多维数组
+一、Numpy主要用于数组运算，支持多种数据类型
+二、ndarry对象是Numpy模块的基础对象，用于存放同类型元素的多维数组，而数据类型是由dtype对象指定
 #使用array()函数创建一个ndarray时，需要将python列表作为参数，而列表中的元素即是ndarray的元素
 
 import numpy as np
-1.a=np.array([1,2,3,4,5])
+1.创建ndarry对象
+a=np.array([1,2,3,4,5])
 print('数组内容为:',a)
 print('数组类型为:',a.dtype)
 print("数组的形状为:',a.shape)
@@ -42,8 +43,10 @@ print(a)
 a=np.diag([1,2,3,4,5])
 print(a)
 
+
+
 （二）、生成随机数
-1.rand()函数：用于生成一个任意维数的数组
+1.rand()函数：用于生成一个任意维数的数组，数组的元素取自0~1上的均匀分布
 a=np.random.rand(2,3,2)
 print(a)
 
@@ -51,23 +54,28 @@ print(a)
 a=np.random.randint(2,10,size=（2，2，3))
 print(a)
 
-3.random()函数：创建一个随机数组
+3.random()函数：生成一个0~1的浮点型随机数的数组
 a=np.random.random(5)
 print(a)
 
 （三）、切片和索引
 与python中列表（list)的切片操作相同
+b=np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(b)
+print(b[0,1:4])  #打印第一行中第2、3列元素
 
 （四）、修改数组形状
 1.改变数组维度
-reshape()函数
+reshape()函数：
+numpy.reshape(a,newshape,order='C'),其中a表示要修改形状的数组，newshape为新的shape,order表示按什么方式排列
+
 b=a.reshape(3,3)
 print(b)
 
 2.展平数组元素
 ravel()函数
 'C':按行，‘F’：按列，‘A’：按原顺序，‘K’：在内存中的出现顺序
-
+print(b.ravel(order='F'))
 （五）、组合数组
 1.hstack()函数：实现水平堆叠序列中的数组
 vstack()函数：实现垂直堆叠序列中的数组
@@ -83,6 +91,8 @@ vstack()函数：实现垂直堆叠序列中的数组
 
 3.split(）函数
 实现沿着特定的轴将原数组分割为多个子数组
+
+
 
 四、Numpy模块中函数的应用
 1.三角函数
