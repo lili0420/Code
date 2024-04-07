@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*css属性:对html进行美化，书写位置在head标签内的title标签下的<style>标签中*/
+            /*css的引用方式:内嵌式，外链式:通过<link>标签引入.css文件，内联式:添加style属性*/
+            div{
+                font-size:10px;
+                background-color:brown;
+            }
+            .liang{
+                background-color:blue;
+            }
+            #one{
+                background-color:bisque;
+            }
+    </style>
+    <!--css的selector种类
+        1:使用*表示选择匹配html中所有元素
+        2：标签选择器 标签名{属性}
+        3：类选择器 通过标签的class属性用.classname进行匹配
+        4：id选择器 通过标签的id属性进行匹配用#来定义
+    -->
+</head>
+<body>
+    <div id="css">
+        hello css学习
+        <br>
+        <p style="color:aquamarine;">添加属性</p>
+    </div>
+    <div class="liang">通过标签的class属性</div>
+    <div id="one">通过标签的id属性进行匹配</div>
+</body>
+</html>

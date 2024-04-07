@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form学习</title>
+    <style>
+        h1{
+            color:brown;
+            text-align:center;
+            font-style:italic;
+        }
+        div{
+            background-image:url(./13_proc.jpg);
+            text-align:center;
+            font-size:24px;
+        }
+    </style> 
+</head>
+<body>
+    <div>
+        <h1>广西城市职业大学图书管理系统</h1>
+        <h2>登陆界面</h2><br>
+        <!--form表单的主要作用实现登录，注册，搜索功能action:数据提交地址-->
+        <form name="formname"action="">
+        <label>
+          <!--input标签根据type属性值可以变化为多种输入方式 placeholder：表示占位符输入提示-->
+            用户名:<input type="text" placeholder="请输入用户名"><br>
+            密码：<input type="password" placeholder="请输入密码"><br>
+        </label>
+        <br>
+        <!--radio单选 name:具有分组功能，同组只能选择一个 checked：默认选择-->
+        <label>
+            性别:男<input type="radio" name="sex" checked>
+                女<input type="radio" name="sex" checked>
+        </label>
+        <br>
+        <label>
+            <!--checkbox多选-->
+            爱好:eat<input type="checkbox">
+                sleep<input type="checkbox">
+                game<input type="checkbox">
+                play<input type="checkbox">
+        </label>
+        <br>
+        <!--selected标签定义下拉菜单    selected默认选择-->
+        <label>
+            省份:<select>
+                <option>北京</option>
+                <option>上海</option>
+                <option>成都</option>
+                <option>广州</option>
+            </select>
+        </label>
+        <br>
+        <label>
+            <!--文件上传multiple：上传多个文件-->
+            头像上传:<input type="file" multiple>
+        </label>
+        <br>
+            <!--textarea定义多行的文本输入控件-->
+            个人介绍:<textarea name="introduce" rows="10" colos="30">
+            </textarea>
+            <br>
+            <!--button设置-->
+            <input type="button" value="按键">
+            <input type="reset" value="重置">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>

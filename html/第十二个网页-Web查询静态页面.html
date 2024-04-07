@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1+X 成绩查询</title>
+    <style>
+        /*<!--最外围边框        -->*/
+        .contents{
+            width:600px;
+            height:400px;
+            margin:100px auto; /*auto代表浏览器计算外边距*/
+        }
+        /*设计log*/
+        .contents-top{
+            border-bottom:2px solid rgb(130,174,202);
+        }
+        .contents-top img{
+            margin:20px 0 10px 20px;/*顺时针:上右下左的顺序，margin代表外边距*/
+        }
+        .contents-txt{
+            text-align:center;
+            padding-top:40px;
+        }
+        .contents-txt h4{
+            color:rgb(131,145,171);
+            font-weight:normal;
+            text-shadow:2px 2px 2px rgb(158,222,232);
+        }
+        .context-txt p{
+            font-weight:normal;
+            margin-top:-10px;
+            font-size:12px;
+        }
+        .forms{
+            margin-top:20px;
+        }
+        .forms label{
+            font-size:14px;
+        }
+        .form-div{
+            display:inline-block;
+            vertical-align:-22px;
+            text-align:left;
+        }
+        .form-div input{
+            border:1px solid rgb(193,193,193);
+            border-radius:4px;
+            height:20px;
+            width:230px;
+        }
+        .form-div p{
+            margin-top:2px;
+            font-size:12px;
+            color:rgb(193,193,193);
+        }
+        .codes{
+            margin-right:150px;
+            vertical-align:0px;
+        }
+        .codes input{
+            width:70px;
+        }
+        .form-sub{
+            margin-top:26px;
+        }
+        .form-sub input{
+            color:white;
+            font-size:12px;
+            background:rgb(46,131,202);
+            border:0;
+            border-radius:2px; /*border-radius为边框圆角*/
+            width:60px;
+        }
+    </style>
+</head>
+<body>
+    <!--具体网页内容编写-->
+    <div class="contents">
+        <div class="contents-top">
+            <img src="./12.jpg"alt="zh_logo">
+        </div>
+        <div class="contents-txt">
+            <h4>1+X Python程序开发职业技能等级证书考试成绩查询系统</h4>
+            <p>仅限查询2021年考试成绩</p>
+            <form action=""class="forms">
+                <label for="card_id">准考证号：</label>
+                <div class="form-div">
+                    <input type="text"id="card_id">
+                    <p>请输入15位笔试或口试准考证号</p>
+                </div>
+                <br>
+                <label for="card_id">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓&nbsp;名:</label>
+                <div class="form-div">
+                    <input type="text"id="username">
+                    <p>姓名操作三个字，可只输入3个</p>
+                </div>
+                <br>
+                <label for="code_id">验证码:</label>
+                <div class="form-div codes">
+                    <input type="text"id="code_id">
+                </div>
+                <div class="form-sub">
+                    <input type="submit"value="提交">
+                    <input type="reset"value="重置">
+                    <input type="button"value="返回">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+    <!--table标签定义一个表格   border:设置边框线，align:表格对齐
+    完整的表格通常包含thead,tbody,tfoot-->
+    <table border="1" align="center" width="500">
+        <caption>学生成绩单表格</caption><!--caption表格定义表格的标题.必须直接放置到<table>标签之后-->
+            <thead>
+                <tr>
+                    <td>name</td>
+                    <td>age</td>
+                    <th>score</th><!--文字加粗-->
+                </tr>
+            </thead>
+            <tbody>
+                <!--rowspan上下合并，保留上-->
+                <tr>
+                    <td>张三</td>
+                    <td>20</td>
+                    <td rowspan="2">90</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>张三风</td>
+                    <td>78</td>
+                    <td>85</td>
+                </tr>
+                <tfoot>
+                    <!--colsapn向右合并列，保留左-->
+                    <tr align="center">
+                        <td colspan="3">底部</td>
+                    </tr>
+                </tfoot>
+            </tbody>
+    </table>
+
+</body>
+</html>

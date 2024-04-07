@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css-border边框</title>
+    <!--围绕内容和内边距的一条或多条线，通过border属性可以设置边框的样式、宽度和颜色-->
+    <style>
+        .div1{
+            width:300px;
+            height:300px;
+            background-color:papayawhip;
+            margin-top:40px;
+            padding-top:10px;
+            border-left:4px solid red; /*border：{width style color}
+            定义宽度为width、样式为style、颜色为color的边框,其中这里的border-left代表为左边框*/
+        }
+
+        .div2{
+            width:200px;
+            height:100px;
+            background-color:blueviolet;
+            margin-left:50px;
+            padding-top:50px;
+            border:10px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <div class="div2"></div>
+    </div>
+</body>
+</html>

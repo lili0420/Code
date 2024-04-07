@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS分组选择器</title>
+    <!--分组选择器:对选择器进行分组，这样，被分组的选择器就可以分享相同的声明。用逗号将需要分组的选择器分开。-->
+    <style>
+        p,li{
+            color:magenta;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>段落1</p>
+        <p>段落2</p>
+        <div>div段落</div>
+        <ul>
+            <li>无序列表1</li>
+            <li>无序列表2</li>
+            <li><span>span为特殊列表</span></li>
+    </div>
+</body>
+</html>

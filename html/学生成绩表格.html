@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生成绩表格</title>
+    <style>
+        table{
+            color:blue
+
+        }
+    </style>
+</head>
+<body>
+    <table border=2 width=500 align=center>
+        <caption>学生成绩表格</caption>
+        <thead>
+            <tr>
+                <th>学生姓名</th>
+                <th>学生学号</th>
+                <th>学生英语成绩</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>王芳</td>
+                <td>2110240520</td>
+                <td rowspan="2">80</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>21102400521</td>
+            </tr>
+            <tr>
+                <td>小红</td>
+                <td>2110240522</td>
+                <td>90</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" align="center">成绩表格底部</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

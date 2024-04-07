@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--table标签表示一个表格，
+        一个完整的表格一般包含<thead>、<tbody>、<tfoot>标签
+            thead:表头，tbody:主体，tfoot:页脚
+        border:设置表格边框，width:设置表格宽度，align:设置表格对齐,cellpading:设置单元格间距，cellspacing:设置像素间隙-->
+    <!--tr:代表有若干行，td:每行被分割为若干单元格-->
+    <table border="1",width="500",align="center",cellpading="0",cellspacing="0">
+    <thead>
+        <tr align="center">
+        <th>ID</th>
+        <th colspan="2">姓名</th><!--th属性:默认字体加粗
+                                    colspan属性:向右合并两列-->
+        </tr>
+    </thead>
+    <tbody>
+        <tr align="cneter">
+        <td rowspan="2">1</td>
+        <td>王五</td>
+        <td>小红</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr align="center">
+        <td rowspan="2">2</td><!--rowspan：向下合并，其中rowspan="2"代表向下合并两行-->
+        <td>张三</td>  
+        <td>李四</td>
+        </tr>
+    </tfoot>
+    </table>
+</body>
+</html>

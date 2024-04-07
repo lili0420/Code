@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form学习</title>
+</head>
+<body>
+    <!--表单默认提交方式:get-->
+    <h1>用户中心设置</h1>
+    <!--form标签表示一个表单-->
+    <!--border:1px solid black中的1px代表宽度为1个像素，solid为实线，black为黑色-->
+    <form action=""method="get"style="border:1px solid black">
+        <!--点击文字用户名，可以直接选中输入框-->
+         <label for="name">用户名：</label>
+        <!--    id标识唯一一个标签-->
+        <!--    placeholder：提示信息-->
+        <!--表单通用属性:name、value、readonly、disabled,
+            name属性：规定输入字段名称，
+            value属性:规定输入字段的初始值
+            readonly属性:规定输入字段为只读
+            disabled属性:规定输入字段是禁用的-->
+        <!--input标签根据type属性值可以变化为多种输入方式 placeholder：占位符-->
+        <input type="text"id="name"name="username"placeholder="请输入用户名">
+        <!--input type="text"/>定义多行输入字段供文本输入-->
+        <br>
+
+        <!--
+            <label>
+            用户名:<input type="text" placeholder="用户名">
+        </label>
+        <br>
+        -->
+
+        <label for="pass">密码:</label>
+        <!--<input type="password"/>定义密码字段-->
+        <input type="password"id="pass"name="password"placeholder="请输入密码">
+        <br>
+        <label>性别:</label>
+        <!--<input type="radio"/>定义单选按钮-->
+        男<input type="radio"name="gender"value="gender">
+        女<input type="radio"name="gender"value="gender">
+        <br>
+        <label>爱好:</label>
+        <!--<input type="checkbox"/>定义复选框-->
+        吃饭<input type="checkbox"name="hobby1"value="eat">
+        睡觉<input type="checkbox"name="hobby2"value="sleep">
+        游戏<input type="checkbox"name="hobby3"value="game">
+        运动<input type="checkbox"name="hobby4"value="sport">
+        <br>
+        <label>省份:</label>
+        <!--select标签定义可单选或多选下拉菜单，包含若干个可选项(<options>)-->
+        <select name="company">
+            <option value="bj">北京</option>
+            <option value="sh">上海</option>
+            <option value="gz">广州</option>
+            <option value="sz">深圳</option>
+        </select>
+        <br>
+        <label>上传头像：</label>
+        <!--<input type="file"/>定义文件框-->
+        <input type="file"name="header">
+        <br>
+        <label for="intro">个人介绍:</label>
+
+        <!--textarea标签定义多行的文本输入控件，其中rows:规定文本区内的可见行数，colos:规定文本区内的可见宽度-->
+        <textarea name="introduce" id="intro" cols="30" rows="10"></textarea>
+        <br>
+        <!--<input type="button"/>定义普通按钮-->
+        <input type="button"value="按钮">
+        <!--<input type="reset"/>定义重置按钮-->
+        <input type="reset"value="重置">
+        <!--<input type="submit"/>定义提交按钮-->
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

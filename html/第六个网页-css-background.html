@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:100%; /*定义基于父对象中字体的尺寸大小*/
+            height:300px;
+            text-align:center;
+        }
+        p{
+            line-height:30px;
+            text-transform:capistalize;   /*text-transform为设置文本字体的大小，
+            capitalize是将每个单词的第一个字母转换成大写*/
+        }
+        .sp1{
+            font-size:24px;
+            font-family:华文楷体; /*设置文本字体*/
+            font-weight:bolder; /*设置文本字体的粗细，bolder为bold更粗的粗体*/
+        }
+        .sp2{
+            font-style:italic; /*设置文本字体样式，italic为斜体*/
+            font-weight:bold; /*bold为粗体*/
+        }
+        .sp3{
+            color:red;
+            font-weight:bold;
+            text-decoration:underline; /*设置文本字体的修饰，underline代表下画线*/
+            text-indent:24px; /*设置文本字体的首行缩进.24px代表首行缩进24个像素*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <p>
+        <span class="sp1">python</span>语言的简洁性、<br>
+        <span class="sp2">易读性</span>以及<span class="sp2">可扩展性</span>,<br>
+        在国外用Python做科学计算的研究机构日益增多,<br>
+        一些知名大学已经采用Python来教授程序设计课程。<br>
+        例如<span class="sp3">卡耐基梅隆大学</span>的编程基础、<br>
+        <span class="sp3">麻省理工学院</span>的计算机及编程导论就使用Python语言讲授。
+    </p>
+    <div style="background-image:url('./12.jpg')">
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body{
+            font-family:Arial,Helvetica,sans-serif;
+            background-color:#F2F2F2;
+        }
+        .container{
+            padding:16px;
+            background-color:white;
+            border-radius:5px;
+            box-shadow:0 0 10px #8888;
+            max-width:400px;
+            margin:auto;
+            margin-top:100px;
+        }
+        input[type=submit]{
+            background-color:#4CAF50;
+            color:white;
+            padding:none;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+        input[type=submit]:hover{
+            background-color:#45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form>
+            <label for="username"><b>用户名</b></label>
+            <input type="text"placeholder="Enter Username"name="username"required><br>
+            <label for="password"><b>密码</b></label>
+            <input type="password"placeholder="Enter password"name="password"required>
+            <input type="submit"value="Login">
+        </form>
+    </div>
+    
+</body>
+</html>

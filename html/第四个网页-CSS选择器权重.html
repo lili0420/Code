@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器权重</title>
+    <!--在同一组属性设置中标有"!important"规则的优先级最大-->
+    <style>
+        #ps{
+            color:deepskyblue;
+        }
+        .cla{
+            color:gold;
+        }
+        p{
+            color:magenta !important;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>段落1</p>
+        <p class="cla">段落2</p>
+        <p id="cla" id="ps">段落3</p>
+    </div>
+</body>
+</html>
