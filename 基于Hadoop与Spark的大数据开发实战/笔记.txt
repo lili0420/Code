@@ -1,0 +1,110 @@
+安装Hadoop伪分布式:
+一、配置主机名为自己的名字拼音，用户名设置为管理员hadoop
+二、进入Centos7的Linux系统，然后ping www.baidu.com，查看网络是否连接，如果无法连接，那么就重新装过Centos7
+三、设置静态IP
+vim /etc/sysconfig/network-scripts/ifcfg-ens33
+修改：
+把BOOTPROTO="none"修改成BOOTPROTO="static"
+四、关闭防火墙
+关闭防火墙：systemctl stop firewalld
+查看防火墙的状态：systemctl status firewalld
+禁用防火墙：systemctl disable firewalld(*注意：防火墙一定要停止运行）
+
+五、修改主机名
+vim /etc/hostname
+改成自己名字的拼音
+reboot（生效）
+
+六、配置主机名与IP映射
+vim /etc/hosts 
+加入：
+主机IP地址    主机名（即自己名字的拼音）
+
+七、设置SSH免密登录
+ssh-keygen -t rsa
+ssh-copy-id lili
+ssh lili
+ping lili
+
+八、用Xftp7软件把jdk和hadoop的安装包上传到Linux系统
+注：先在虚拟机和宿主机相互ping一下看是否能ping通，ping不通的话Xshell和Xftp就无法连接虚拟机了
+
+九、安装JAVA运行环境
+在/opt目录下创建apps、module目录
+然后解压、改名、配置环境
+tar -zxvf xxxxxxxxxxx.tar.gz -C 路径(即/opt/apps)
+mv xxx jdk
+mv xxx hadoop
+
+
+vim /etc/profile配置环境：
+#JAVA_HOME
+export JAVA_HOME=路径
+export JRE_HOME=${JAVA_HOME}/jre
+export PATH=$PATH:$JAVA_HOME/bin
+#HADOOP_HOME
+export HADOOP_HOME=路径
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+export HDFS_NAMENODE_USER=root
+export HDFS_DATANODE_USER=root
+export HDFS_SECONDARYNAMENODE_USER=root
+export YARN_RESOURCEMANAGER_USER=root
+export YARN_NODEMANAGER_USER=root
+接着source /etc/profile
+
+十、配置好5个文件：hadoop-env.sh,core-site.xml,hdfs-site.xml,yarn-site.xml,mapred-site.xml
+(1)hadoop-env.sh:
+添加：
+export JAVA_HOME=jdk的目录
+export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
+(2)core-site.xml
+ <!-- 指定NameNode的地址 -->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs:/主机名:8020</value>
+    </property>
+    <!-- 指定hadoop数据的存储目录 -->
+    <property>
+        <name>Hadoop.tmp.dir</name>
+        <value>hadoop路径/tmp</value>
+</property>
+(3)hdfs-site.xml
+		<property>
+                <name>dfs.namenode.name.dir</name>
+                <value>/opt/apps/hadoop/tmp/dfs/name</value>
+        </property>
+        <property>
+                <name>dfs.datanode.data.dir</name>
+                <value>/opt/apps/hadoop/tmp/dfs/data</value>
+        </property>
+        <property>
+                <name>dfs.resplication</name>
+                <value>1</value>
+        </property>
+(4)yarn-site.xml
+		<!-- 指定MR走shuffle -->
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+
+    <!-- 指定ResourceManager的地址-->
+    <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>主机名value>
+    </property>
+（5）mapred-site.xml
+<!-- 指定MapReduce程序运行在Yarn上 -->
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+	
+十一、格式化:hdfs namenode -format
+
+十二、在/opt/apps/hadoop目录下：start-all.sh
+然后jps(查看有6个进程）说明成功了
+
+十三、在网址上输入主机名/主机IP地址：9870可以访问web端地址(在Web端查看HDFS的NameNode)
+主机名/主机IP地址：8088可以访问调度器（在Web端查看YARN的ResourceManager）
