@@ -62,7 +62,7 @@ export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
  <!-- 指定NameNode的地址 -->
     <property>
         <name>fs.defaultFS</name>
-        <value>hdfs:/主机名:8020</value>
+        <value>hdfs://主机名:8020</value>
     </property>
     <!-- 指定hadoop数据的存储目录 -->
     <property>
@@ -101,9 +101,9 @@ export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
         <value>yarn</value>
     </property>
 	
-十一、格式化:hdfs namenode -format
+十一、格式化HDFS系统:hdfs namenode -format
 
-十二、在/opt/apps/hadoop目录下：start-all.sh
+十二、在/opt/apps/hadoop/sbin目录下：./start-all.sh
 然后jps(查看有6个进程）说明成功了
 
 十三、在网址上输入主机名/主机IP地址：9870可以访问web端地址(在Web端查看HDFS的NameNode)
