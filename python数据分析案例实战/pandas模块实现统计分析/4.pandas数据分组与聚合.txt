@@ -1,0 +1,58 @@
+一、分组数据
+1.groupby()方法
+通过该方法对数据集分组后将返回一个SeriesGroupBy对象（数据集为Series对象）或DataFrameGroupBy对象（数据集为DataFrame对象），然后通过该对象根据需求调用不同的计算函数来实现整组数据的计算功能，例如获取
+整组数据的总和、平均值等。
+groupby()方法实现分组的操作过程分为以下三个阶段：
+（1）将数据分成多个组
+（2）使用一个计算函数处理每一组数据
+（3）将处理后的数据合并成一个新的对象
+<1>数据分组
+实现两种分组方式
+如果仅对DataFrame对象中的数据进行分组时将返回一个DataFrameGroupBy对象，如果是对DataFrame对象中某一列的数据进行分组时将返回一个SeriesGroupBy对象
+import pandas
+
+#创建数据
+data={'key':['a','a','b','c','a'],
+      'data':[1,2,3,4,5],
+      'data1':[2,4,6,8,10]}
+data_frame=pandas.DataFrame(data)  #创建DataFrame对象
+#仅根据key进行分组
+group=data_frame.groupby(data_frame['key'])
+#指定列名并根据key进行分组
+group1=data_frame['data'].groupby(data_frame['key'])
+print(type(group))
+print(type(group1))
+
+<2>分组统计
+print(group.mean) #统计每组数据的平均值
+
+<3>分组迭代
+#循环迭代分组数据
+for a in group:
+  print(a)
+注：也可以在迭代时将分组名称与分组数据分离进行迭代：
+(for group_name,group_data in group:)
+
+
+二、聚合数据
+agg()方法可以实现对分组后数据的聚合功能，从实现上来看，agg()方法类似于对DataFrame对象中列的数据进行分组，然后再调用sum()或者是mean()方法来实现数据的
+计算或统计。
+#以DataFrame对象中key进行分组并聚合
+df=data_frame.groupby('key').agg(['max','median','min'])
+print(df)
+
+<1>实现获取每组data列中最小的值
+df=data_frame.groupby('key').agg({'data':'min'})   #以DataFrame对象中key进行分组，然后获取每组data列中最小的值
+print(df)
+
+<2>获取对data数据求和,data1列数据求和与列中数据最大值
+df=dat_frame.agg({'data':'sum','data1':['sum','max']})
+print(df)
+
+<3>通过指定自定义函数名称的方式实现数据的统计与计算
+#创建测试函数
+def test_function(data):
+  return data.sum()  #返回求和结果
+#指定函数名称
+df =data_frame.agg({'data':test_function})
+prin(df)

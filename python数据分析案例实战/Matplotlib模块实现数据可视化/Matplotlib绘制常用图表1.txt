@@ -1,0 +1,84 @@
+一、pyplot子模块的常用语法：
+pyplot.figure():调用该函数可以创建一个空白的画布
+
+二、pyplot子模块绘制图表内容所常用的函数：
+1.pyplot.title:用于设置图标的标题文字
+pyplot.xlabel：用于设置图标中x轴的名称
+pyplot.ylabel：用于设置图标中y轴的名称
+pyplot.xlim():设置当前图表x轴的范围，该值为区间值
+pyplot.ylim():设置当前图表y轴的范围，该值为区间值
+pyplot.xticks():设置当前图表x轴的刻度或文本标签
+pyplot.yticks():设置当前图表y轴的刻度或文本标签
+pyplot.legend():设置当前图标的图例
+*pyplot.plot():绘制图表
+pyplot.savefig():保存绘制的图表
+pyplot.show():显示当前已经绘制完成的图表
+
+三、绘制常用图表
+1.绘制条形图
+分为水平与纵向，多数用于比较多个项目分类的数据大小
+使用pyplot子模块绘制条形图时，需要调用pyplot.bar()函数来实现。
+<1>水平条形图：
+#水平条形图
+import matplotlib.pyplot as plt #导入绘图模块
+import matplotlib #导入图表模块
+# 避免中文乱码
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']
+matplotlib.rcParams['axes.unicode_minus'] = False
+
+number = [9, 2, 44, 1, 1, 5, 11, 4, 23]  #比例数据
+# 出版社数据
+press = ['中国水利水电', '中国电力', '中国邮电', '北京大学', '华中科技大学', '吉林大学', '机械工业', '清华大学',
+         '电子工业']
+# 从下往上画水平条形图，用barh()方法
+plt.barh(range(len(number)), number, height=0.3, color='r', alpha=0.8)
+plt.yticks(range(len(number)), press)  # y轴出版社名称显示
+plt.xlim(0, 100)  # x轴的数量0~100
+plt.xlabel("比例")  # 比例文字
+plt.title("前100名出版社占有比例")  # 表标题文字
+# 显示百分比数量
+for x, y in enumerate(number):
+    plt.text(y + 0.1, x, '%s' % y + '%', va='center')
+plt.show()  # 显示图表
+
+<2>垂直条形图：
+# 垂直条形图
+import matplotlib.pyplot as plt  # 导入绘图模块
+import matplotlib  # 导入图表模块
+
+# 避免中文乱码
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']
+matplotlib.rcParams['axes.unicode_minus'] = False
+number = [9, 2, 44, 1, 1, 5, 11, 4, 23]  # 比例数据
+# 出版社数据
+press = ['中国水利水电', '中国电力', '中国邮电', '北京大学', '华中科技大学', '吉林大学', '机械工业', '清华大学',
+         '电子工业']
+# 从下往上画垂直条形图，用bar()方法
+bar = plt.bar(range(len(number)), number, color='r', alpha=0.8, width=0.9)
+plt.xticks(range(len(number)), press)  # y轴出版社名称显示
+plt.xlim(0, 100)  # x轴的数量0~100
+plt.ylabel("比例")  # 比例文字
+plt.title("前100名出版社占有比例")  # 表标题文字
+# 显示百分比数量
+for b in bar:
+    height = b.get_height()
+    plt.text(b.get_x() + b.get_width() / 2, height + 1, '%s' % str(height) + '%', ha="center", va="bottom")
+plt.show()  # 显示图表
+
+
+2.绘制折线图
+通常用于观察随着时间变化的趋势，例如最常见的股票走势图、商品价格变化等
+import matplotlib #导入图表模块
+import matplotlib.pyplot as plt #导入绘图模块
+# 避免中文乱码
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']
+matplotlib.rcParams['axes.unicode_minus'] = False
+x=['1','2','3','4','5','6','7','8','9','10']
+y=[71.0,94.1,47.1,72.4,86.1,79.0,71.0,73.3,55.0,39.1] #y轴价格数据
+# 绘制折线，并在折点添加蓝色原点
+plt.plot(x,y,linewidth=3,color='r',marker='o',markerfacecolor='blue',markersize=8)
+plt.xlabel('排名')
+plt.ylabel('价格')
+plt.title('前10名价格走势图') #标题名称
+plt.grid('网格') #显示网格
+plt.show() #显示折线图
