@@ -1,0 +1,32 @@
+注：使用HDFS Shell之前需要先启动Hadoop，即在/opt/apps/hadoop/sbin目录下执行./start-all.sh命令
+
+在伪分布式下执行：
+1.列出文件目录
+hadoop fs -ls 目录路径
+例:hadoop fs -ls /:查看HDFS根目录下的文件
+**递归查看文件：-ls -R(不仅会打印出目录路径下的文件，而且会打印出其子目录和子目录的文件
+
+2.在HDFS中创建文件夹
+hadoop fs -mkdir 文件夹名称
+**级联创建一个文件夹：需要在-mkdir命令后创建-p参数
+
+3.上传文件至HDFS
+hadoop fs -put 源路径 目标存放路径
+
+4.从HDFS上下载文件
+hdfs dfs -get HDFS文件路径 本地存放路径
+
+5.查看HDFS上某个文件的内容
+hadoop fs -text(cat) HDFS上的文件存放路径
+
+6.统计目录下各文件的大小
+hadoop fs -du 目录路径
+
+7.删除HDFS上的某个文件或者文件夹
+hadoop fs -rm(r) 文件存放路径
+**注：-rm:删除指定的文件或者空目录
+-rmr:递归删除指定目录下的所有子目录和文件
+
+8.使用help命令寻求帮助
+hadoop fs -help 命令
+例：查看rm命令的帮助

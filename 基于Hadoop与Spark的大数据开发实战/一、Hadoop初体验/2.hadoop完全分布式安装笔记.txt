@@ -136,7 +136,8 @@ hadoop version
 (注：如果查不到版本，那么就source /etc/profile,刷新文件，使之生效)
 
 
-十二、在第一台主机(lili1)进行格式化namenode:hdfs namenode -format
+十二、在第一台主机(lili1)进行格式化namenode:
+hdfs namenode -format
 
 十二、接着在/opt/apps/hadoop/sbin目录下：./start-all.sh
 然后jps(查看有6个进程)说明成功了
