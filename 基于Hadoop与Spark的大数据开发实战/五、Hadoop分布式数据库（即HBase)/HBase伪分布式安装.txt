@@ -1,0 +1,44 @@
+HBase伪分布式安装：（用hadoop伪分布式来弄）
+一、 在Windows下安装HBase
+二、用Xftp软件把hbase的安装包上传到虚拟机上
+三、在虚拟机上解压：
+在/opt/module:tar -zxvf xxxxxxxxx -C /opt/apps
+(/opt/module:存放安装包路径，如果没有自行创建，
+/opt/apps:存放解压后的包路径，如果没有也自行创建）
+四、重命名：mv xxxxxxx hbase
+ll
+五、接下来修改HBase的配置文件，首先我们进入hbase的conf目录下
+
+（1）修改配置文件hbase-env.sh，添加如下信息：
+export JAVA_HOME=/opt/apps/jdk
+export HBASE_MANAGES_ZK=true
+(注：export HBASE_MANAGES_ZK=true 此配置信息，表示设置由hbase自己管理zookeeper，不需要单独的zookeeper, 本文搭建的 Hbase 用的是自带的 zookeeper，故设置为true，注意该配置信息默认为true，若想使用单独的zookeeper，则需将该值设置为false）
+
+（2）修改配置文件hbase-site.xml
+添加：
+<configuration>
+    <property>
+        <name>hbase.rootdir</name>
+        <value>hdfs://lili:8020/hbase</value>
+    </property>
+    <property>
+        <name>hbase.cluster.distributed</name>
+        <value>true</value>
+    </property>
+</configuration>
+**注：hbase.rootdir：该参数制定了HReion服务器的位置，即数据存放的位置。主要端口号要和Hadoop相应配置一致。
+hbase.cluster.distributed：HBase的运行模式。false是单机模式，true是分布式模式。若为false, HBase和Zookeeper会运行在同一个JVM里面。默认为false.
+
+六、启动hbase:
+(1)先启动HDFS
+cd /opt/apps/hadoop/sbin
+./start-all.sh或者./start-ds.sh
+jps
+（看到有6个进程说明成功了）
+(2)启动hbase
+cd /opt/apps/hbase
+./start-hbase.sh
+jps
+(看到有3个进程说明成功了，分别是HRegionServer、HQuorumPeer、HMaster)
+
+七、进入/opt/apps/hbase/bin目录下，然后执行hbase shell命令，进行HBase Shell操作

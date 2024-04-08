@@ -144,6 +144,11 @@ hdfs namenode -format
 
 十三、在第二、三台主机上jps一下，有3个进程说明成功了，分别是datanode,jps,nodemanager
 
+**或者：十二、三改为：在第一台主机上的$HADOOP_HOME/sbin下执行start-dfs.sh,出现
+（1）在第一台主机上的$HADOOP_HOME/sbin/start-dfs.sh，然后jps一下，出现JPS、DataNode、NameNode、NodeManager,说明成功了
+（2）然后在第一台从机上jps一下，出现JPS、DataNode、NameNode、ResourceManager,说明成功了
+接着在第二台从机上jps一下，出现JPS、DataNode、SecondaryNameNode、NodeManager,说明成功了
+
 十四、在网址上输入主机名/主机IP地址：9870可以访问web端地址(在Web端查看HDFS的NameNode)
 主机名/主机IP地址：8088可以访问调度器（在Web端查看YARN的ResourceManager）
 
