@@ -80,7 +80,7 @@ export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
  <!-- 指定NameNode的地址 -->
     <property>
         <name>fs.defaultFS</name>
-        <value>hdfs:/主机名:8020</value>
+        <value>hdfs://主机名:8020</value>
     </property>
     <!-- 指定hadoop数据的存储目录 -->
     <property>
