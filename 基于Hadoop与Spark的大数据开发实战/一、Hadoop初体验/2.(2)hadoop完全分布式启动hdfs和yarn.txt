@@ -1,0 +1,16 @@
+1.在主机上启动HDFS：
+一次启动所有进程
+$HADOOP_HOME/sbin/start-dfs.sh
+启动完成后可以通过jps命令检测是否启动成功
+jps
+SecondaryNameNode
+NameNode
+DataNode
+
+2.启动Yarn
+一次启动所有进程
+$HADOOP_HOME/sbin/start-yarn.sh
+启动完成后可以通过jps命令检测是否启动成功
+jps
+NodeManager
+ResourceManager
