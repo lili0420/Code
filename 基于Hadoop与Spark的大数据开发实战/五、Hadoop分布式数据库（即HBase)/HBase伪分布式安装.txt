@@ -29,6 +29,12 @@ export HBASE_MANAGES_ZK=true
 **注：hbase.rootdir：该参数制定了HReion服务器的位置，即数据存放的位置。主要端口号要和Hadoop相应配置一致。
 hbase.cluster.distributed：HBase的运行模式。false是单机模式，true是分布式模式。若为false, HBase和Zookeeper会运行在同一个JVM里面。默认为false.
 
+（3)配置HBase环境变量，否则后面无法进行hbase shell操作
+vim /etc/profile,在里面编写如下代码：
+export HBASE_HOME=/opt/apps/hbase
+export PATH=$PATH:${HBASE_HOME}/bin
+最后记得刷新该文件，执行source /etc/profile
+
 六、启动hbase:
 (1)先启动HDFS
 cd /opt/apps/hadoop/sbin
