@@ -18,6 +18,8 @@ pyplot.show():显示当前已经绘制完成的图表
 1.绘制条形图
 分为水平与纵向，多数用于比较多个项目分类的数据大小
 使用pyplot子模块绘制条形图时，需要调用pyplot.bar()函数来实现。
+语法格式如下：
+maplotlib.pyplot.bar(x,height,width=0.8,bottom=None,*,align='center',data=None,**kwargs)
 <1>水平条形图：
 #水平条形图
 import matplotlib.pyplot as plt #导入绘图模块
@@ -70,6 +72,9 @@ plt.show()  # 显示图表
 
 2.绘制折线图
 通常用于观察随着时间变化的趋势，例如最常见的股票走势图、商品价格变化等
+使用pyplot子模块绘制折线图时，直接调用pyplot.plot()函数绘制即可。
+语法格式如下：
+matplotlib.pyplot.plot(*args,scalex=True,scaley=True,data=None,**kwargs)
 import matplotlib #导入图表模块
 import matplotlib.pyplot as plt #导入绘图模块
 # 避免中文乱码
