@@ -30,6 +30,8 @@ number = [9, 2, 44, 1, 1, 5, 11, 4, 23]  #比例数据
 # 出版社数据
 press = ['中国水利水电', '中国电力', '中国邮电', '北京大学', '华中科技大学', '吉林大学', '机械工业', '清华大学',
          '电子工业']
+# 设置图表跨行跨列
+plt.subplot2grid((12,12),(1,2),colspan=12,rowspan=10)
 # 从下往上画水平条形图，用barh()方法
 plt.barh(range(len(number)), number, height=0.3, color='r', alpha=0.8)
 plt.yticks(range(len(number)), press)  # y轴出版社名称显示
