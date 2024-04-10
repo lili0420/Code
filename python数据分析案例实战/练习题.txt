@@ -5,7 +5,7 @@
 # x=np.linspace(-5,3)
 # y=x**2+2*x+1
 # plt.plot(x,y)
-# plt.grid()
+# plt.grid()  #设置网格
 # plt.show()
 
 # 2.在同一张图中创建两个子图，分别画出sinx和cosx在区间[-3.14,3.14]上的函数图像。设置线条宽度为2.5
