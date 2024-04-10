@@ -1,0 +1,77 @@
+# 1.画出y=x**2+2*x+1在区间[-5,3]的函数图像
+# import matplotlib
+# import matplotlib.pyplot as plt
+# import numpy as np
+# x=np.linspace(-5,3)
+# y=x**2+2*x+1
+# plt.plot(x,y)
+# plt.grid()
+# plt.show()
+
+# 2.在同一张图中创建两个子图，分别画出sinx和cosx在区间[-3.14,3.14]上的函数图像。设置线条宽度为2.5
+# import matplotlib
+# import matplotlib.pyplot as plt
+# import numpy as np
+# # 避免中文乱码
+# plt.rcParams['font.sans-serif']=['SimHei']
+# plt.rcParams['axes.unicode_minus']=False
+# a=np.linspace(-np.pi,np.pi)
+# b=np.sin(a)
+# c=np.cos(a)
+#
+# plt.subplot(211) #添加子图1，211代表2行1列第1个位置
+# plt.plot(a,b,linewidth=2.5)
+# plt.xlabel('x1')
+# plt.ylabel('y1')
+# plt.title('子图1')
+#
+# plt.subplot(212) #添加子图2，212代表2行1列第2个位置
+# plt.plot(a,c,linewidth=2.5)
+# plt.xlabel('x2')
+# plt.ylabel('y2')
+# plt.title('子图2')
+# plt.show() #显示图表
+
+# 3.在Matplotlib中，饼状图可以有多种画法。对于如下汽车数据。cars=['AUDI','BMW','FORD','TESLA','JAGUAR','MERCEDES']
+# data=[23,17,35,29,12,41]配置合理的pie()参数配置，绘制出如图4所示的饼状图。
+import matplotlib
+import matplotlib.pyplot as plt
+# 避免中文乱码
+plt.rcParams['font.sans-serif']=['SimHei']
+plt.rcParams['axes.unicode_minus']=False
+cars=['AUDI','BMW','FORD','TESLA','JAGUAR','MERCEDES']
+data=[23,17,35,29,12,41]
+color=['orange','blue','red','grey','purple','white'] #各部分颜色
+explode=[0.1,0,0.3,0.35,0,0]
+plt.pie(data,colors=color,explode=explode,labels=cars,labeldistance=0.7,autopct="%1.1f%%",shadow=True,pctdistance=0.5)
+plt.axis("equal")
+plt.title('个性化定制的饼状图')
+plt.legend()
+plt.show()
+
+
+
+
+
+# 4.对于两组成绩数据：zhangsan=(90,55,40,65),lisi=(84,62,54,20)绘制并列条形图，并填充不同的底纹以示区别。
+# import matplotlib
+# import matplotlib.pyplot as plt
+# import numpy as np
+# # 避免中文乱码
+# plt.rcParams['font.sans-serif']=['SimHei']
+# plt.rcParams['axes.unicode_minus']=False
+# zhangsan=[90,55,40,65]
+# lisi=[84,62,54,20]
+# x=range(0,len(zhangsan))
+# x_ticks=['语文','数学','英语','政治']
+# plt.xticks(x,x_ticks)   #x轴的文本标签
+# # 使用bar()函数画出两组条形图
+# plt.bar(x,zhangsan,width=0.4,color='blue',align='center',label='张三') #x代表条形图的起始位置
+# plt.bar([i+0.4 for i in x],lisi,width=0.4,color='purple',align='center',label='李四') #横坐标对应显示位置的内容
+#
+# plt.xlabel('课程')
+# plt.ylabel('分数/分')
+# plt.title('学生分数对比图')
+# plt.legend() #显示图例
+# plt.show() #显示图表
+#
