@@ -69,6 +69,56 @@ for b in bar:
     plt.text(b.get_x() + b.get_width() / 2, height + 1, '%s' % str(height) + '%', ha="center", va="bottom")
 plt.show()  # 显示图表
 
+Eg:
+# 1.matplotlib绘制条形图
+# import matplotlib
+# import matplotlib.pyplot as plt
+# plt.rcParams['font.family']='Fangsong'
+# nums=[172,134,124,112,128]
+# x=range(0,len(nums))
+# x_ticks=['2014','2015','2016','2017','2018']
+# plt.xticks(x,x_ticks)
+# plt.title('研究生历年报考情况')
+# plt.xlabel("年份")
+# plt.ylabel("人数/万人")
+# plt.bar(x,nums,width=0.4,align='center',color='red',edgecolor='blue',linewidth=2)
+# plt.show()
+
+# 2.matplotlib绘制堆叠条形图
+# import matplotlib
+# import matplotlib.pyplot as plt
+# plt.rcParams['font.family']='Fangsong'
+# nums=[172,134,124,112,128]
+# luqu_nums=[23,76,78,99,66]
+# x=range(0,len(nums))
+# x_ticks=['2014','2015','2016','2017','2018']
+# plt.xticks(x,x_ticks)
+# plt.bar(x,nums,width=0.4,align='center',color='green',edgecolor='yellow',linewidth=2,bottom=luqu_nums)
+# plt.bar(x,luqu_nums,width=0.4,align='center',color='pink')
+# plt.title('研究生历年报考情况')
+# plt.xlabel('年份')
+# plt.ylabel('人数/万人')
+# plt.show()
+
+# 3.matplotlib绘制并列条形图
+import matplotlib
+import matplotlib.pyplot as plt
+plt.rcParams['font.family']='Fangsong'
+nums=[172,134,124,112,128]
+luqu_nums=[23,76,78,99,66]
+x=range(0,len(nums))
+x_ticks=['2014','2015','2016','2017','2018']
+plt.xticks(x,x_ticks)
+plt.bar(x,nums,width=0.4,label='研究生报考人数')
+plt.bar([i+0.4 for i in x],luqu_nums,width=0.4,label='研究生录取人数')
+plt.title("研究生历年报考情况")
+plt.xlabel("年份")
+plt.ylabel("人数/万人")
+plt.legend()
+plt.show()
+
+
+
 
 2.绘制折线图
 通常用于观察随着时间变化的趋势，例如最常见的股票走势图、商品价格变化等
