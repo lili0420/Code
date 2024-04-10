@@ -10,17 +10,21 @@ ll
 五、接下来修改HBase的配置文件，首先我们进入hbase的conf目录下
 
 （1）修改配置文件hbase-env.sh，添加如下信息：
-export JAVA_HOME=/opt/apps/jdk
-export HBASE_MANAGES_ZK=true
+在第28行 export JAVA_HOME=/opt/apps/jdk
+在第129行 export HBASE_MANAGES_ZK=true
+注意：可以set nu 显示行号或者/ZK查找
 (注：export HBASE_MANAGES_ZK=true 此配置信息，表示设置由hbase自己管理zookeeper，不需要单独的zookeeper, 本文搭建的 Hbase 用的是自带的 zookeeper，故设置为true，注意该配置信息默认为true，若想使用单独的zookeeper，则需将该值设置为false）
 
 （2）修改配置文件hbase-site.xml
 添加：
 <configuration>
+ <!--HBase对应的HDFS目录-->
     <property>
         <name>hbase.rootdir</name>
         <value>hdfs://lili:8020/hbase</value>
     </property>
+
+  <!--是一个分布式环境-->
     <property>
         <name>hbase.cluster.distributed</name>
         <value>true</value>
@@ -29,22 +33,21 @@ export HBASE_MANAGES_ZK=true
 **注：hbase.rootdir：该参数制定了HReion服务器的位置，即数据存放的位置。主要端口号要和Hadoop相应配置一致。
 hbase.cluster.distributed：HBase的运行模式。false是单机模式，true是分布式模式。若为false, HBase和Zookeeper会运行在同一个JVM里面。默认为false.
 
-（3)配置HBase环境变量，否则后面无法进行hbase shell操作
-vim /etc/profile,在里面编写如下代码：
-export HBASE_HOME=/opt/apps/hbase
-export PATH=$PATH:${HBASE_HOME}/bin
-最后记得刷新该文件，执行source /etc/profile
-
 六、启动hbase:
 (1)先启动HDFS
 cd /opt/apps/hadoop/sbin
 ./start-all.sh或者./start-ds.sh
 jps
 （看到有6个进程说明成功了）
-(2)启动hbase
+(2)再启动hbase
 cd /opt/apps/hbase
 ./start-hbase.sh
 jps
 (看到有3个进程说明成功了，分别是HRegionServer、HQuorumPeer、HMaster)
+（3)配置HBase环境变量，否则后面无法进行hbase shell操作
+vim /etc/profile,在里面编写如下代码：
+export HBASE_HOME=/opt/apps/hbase
+export PATH=$PATH:${HBASE_HOME}/bin
+最后记得刷新该文件，执行source /etc/profile
 
 七、进入/opt/apps/hbase/bin目录下，然后执行hbase shell命令，进行HBase Shell操作
