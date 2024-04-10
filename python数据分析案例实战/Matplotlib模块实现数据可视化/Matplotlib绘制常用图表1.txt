@@ -110,7 +110,7 @@ x=range(0,len(nums))
 x_ticks=['2014','2015','2016','2017','2018']
 plt.xticks(x,x_ticks)
 plt.bar(x,nums,width=0.4,label='研究生报考人数')
-plt.bar([i+0.4 for i in x],luqu_nums,width=0.4,label='研究生录取人数')
+plt.bar([i+0.4 for i in x],luqu_nums,width=0.4,label='研究生录取人数')  #横坐标对应位置显示的内容
 plt.title("研究生历年报考情况")
 plt.xlabel("年份")
 plt.ylabel("人数/万人")
