@@ -42,7 +42,7 @@ plt.rcParams['axes.unicode_minus']=False
 cars=['AUDI','BMW','FORD','TESLA','JAGUAR','MERCEDES']
 data=[23,17,35,29,12,41]
 color=['orange','blue','red','grey','purple','white'] #各部分颜色
-explode=[0.1,0,0.3,0.35,0,0]
+explode=[0.1,0,0.3,0.35,0,0]  #设置各部分突出大小
 plt.pie(data,colors=color,explode=explode,labels=cars,labeldistance=0.7,autopct="%1.1f%%",shadow=True,pctdistance=0.5)
 plt.axis("equal")
 plt.title('个性化定制的饼状图')
