@@ -18,6 +18,8 @@ pyplot.show():显示当前已经绘制完成的图表
 1.绘制条形图
 分为水平与纵向，多数用于比较多个项目分类的数据大小
 使用pyplot子模块绘制条形图时，需要调用pyplot.bar()函数来实现。
+语法格式如下：
+maplotlib.pyplot.bar(x,height,width=0.8,bottom=None,*,align='center',data=None,**kwargs)
 <1>水平条形图：
 #水平条形图
 import matplotlib.pyplot as plt #导入绘图模块
@@ -30,6 +32,8 @@ number = [9, 2, 44, 1, 1, 5, 11, 4, 23]  #比例数据
 # 出版社数据
 press = ['中国水利水电', '中国电力', '中国邮电', '北京大学', '华中科技大学', '吉林大学', '机械工业', '清华大学',
          '电子工业']
+# 设置图表跨行跨列
+plt.subplot2grid((12,12),(1,2),colspan=12,rowspan=10)
 # 从下往上画水平条形图，用barh()方法
 plt.barh(range(len(number)), number, height=0.3, color='r', alpha=0.8)
 plt.yticks(range(len(number)), press)  # y轴出版社名称显示
@@ -64,6 +68,56 @@ for b in bar:
     height = b.get_height()
     plt.text(b.get_x() + b.get_width() / 2, height + 1, '%s' % str(height) + '%', ha="center", va="bottom")
 plt.show()  # 显示图表
+
+Eg:
+# 1.matplotlib绘制条形图
+# import matplotlib
+# import matplotlib.pyplot as plt
+# plt.rcParams['font.family']='Fangsong'
+# nums=[172,134,124,112,128]
+# x=range(0,len(nums))
+# x_ticks=['2014','2015','2016','2017','2018']
+# plt.xticks(x,x_ticks)
+# plt.title('研究生历年报考情况')
+# plt.xlabel("年份")
+# plt.ylabel("人数/万人")
+# plt.bar(x,nums,width=0.4,align='center',color='red',edgecolor='blue',linewidth=2)
+# plt.show()
+
+# 2.matplotlib绘制堆叠条形图
+# import matplotlib
+# import matplotlib.pyplot as plt
+# plt.rcParams['font.family']='Fangsong'
+# nums=[172,134,124,112,128]
+# luqu_nums=[23,76,78,99,66]
+# x=range(0,len(nums))
+# x_ticks=['2014','2015','2016','2017','2018']
+# plt.xticks(x,x_ticks)
+# plt.bar(x,nums,width=0.4,align='center',color='green',edgecolor='yellow',linewidth=2,bottom=luqu_nums)
+# plt.bar(x,luqu_nums,width=0.4,align='center',color='pink')
+# plt.title('研究生历年报考情况')
+# plt.xlabel('年份')
+# plt.ylabel('人数/万人')
+# plt.show()
+
+# 3.matplotlib绘制并列条形图
+import matplotlib
+import matplotlib.pyplot as plt
+plt.rcParams['font.family']='Fangsong'
+nums=[172,134,124,112,128]
+luqu_nums=[23,76,78,99,66]
+x=range(0,len(nums))
+x_ticks=['2014','2015','2016','2017','2018']
+plt.xticks(x,x_ticks)
+plt.bar(x,nums,width=0.4,label='研究生报考人数')
+plt.bar([i+0.4 for i in x],luqu_nums,width=0.4,label='研究生录取人数')  #横坐标对应位置显示的内容
+plt.title("研究生历年报考情况")
+plt.xlabel("年份")
+plt.ylabel("人数/万人")
+plt.legend()
+plt.show()
+
+
 
 
 Eg:
@@ -119,6 +173,9 @@ plt.show()
 
 2.绘制折线图
 通常用于观察随着时间变化的趋势，例如最常见的股票走势图、商品价格变化等
+使用pyplot子模块绘制折线图时，直接调用pyplot.plot()函数绘制即可。
+语法格式如下：
+matplotlib.pyplot.plot(*args,scalex=True,scaley=True,data=None,**kwargs)
 import matplotlib #导入图表模块
 import matplotlib.pyplot as plt #导入绘图模块
 # 避免中文乱码
