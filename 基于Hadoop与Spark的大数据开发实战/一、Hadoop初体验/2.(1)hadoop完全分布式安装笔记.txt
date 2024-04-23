@@ -97,7 +97,7 @@ export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
                 <value>/opt/apps/hadoop/tmp/dfs/data</value>
         </property>
         <property>
-                <name>dfs.resplication</name>
+                <name>dfs.replication</name>
                 <value>3</value>
         </property>
 (4)yarn-site.xml
